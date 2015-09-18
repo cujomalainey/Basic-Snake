@@ -1,0 +1,70 @@
+Rem ***** Included Source File *****
+function collion()
+       select direction
+       case 0 rem catch collisions going up
+           for a = 0 to snake
+               if a <> snake
+                   if snakex(0) = snakex(a) and snakey(0) + 1 = snakey(a)
+                       killgame()
+                   ENDIF
+               endif
+           NEXT
+           if snakey(0) + 1 > 29
+               killgame()
+           ENDIF
+           if snakex(0) = foodx and snakey(0) + 1 = foody
+               foodfunc()
+           ENDIF
+       endcase
+       case 1 rem collisions for right
+           for a = 0 to snake
+               if a <> snake
+                   if snakex(0) + 1 = snakex(a) and snakey(0) = snakey(a)
+                       killgame()
+                   ENDIf
+               endif
+           NEXt
+           if snakex(0) + 1 > 39
+               killgame()
+           ENDIF
+           if snakex(0) + 1 = foodx and snakey(0) = foody
+               foodfunc()
+           ENDIF
+       endcase
+       case 2 rem collisions for down
+           for a = 0 to snake
+               if a <> snake
+                   if snakex(0) = snakex(a) and snakey(0) - 1 = snakey(a)
+                       killgame()
+                   ENDIF
+               endif
+           NEXT
+           if snakey(0) - 1 < 0     
+               killgame()
+           ENDIF
+           if snakex(0) = foodx and snakey(0) - 1 = foody
+               foodfunc()
+           ENDIF
+       endcase
+       case 3 rem collisions for left
+           for a = 0 to snake
+               if a <> snake
+                   if snakex(0) - 1 = snakex(a) and snakey(0) = snakey(a)
+                       killgame()
+                   ENDIF
+               endif
+           NEXT
+           if snakex(0) - 1 < 0
+               killgame()
+           ENDIF
+           if snakex(0) - 1 = foodx and snakey(0) = foody
+               foodfunc()
+           ENDIF
+       endcase
+       CASE DEFAULT rem catch invalid direction
+           print "Error Code 02"
+           wait 3000
+           end
+       endcase
+       endselect
+ENDFUNCTION

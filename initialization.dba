@@ -1,0 +1,40 @@
+Rem ***** Included Source File *****
+Function initialization()
+    SYNC ON
+    SYNC RATE 15
+    hide mouse
+    dim ground(39,29)
+    dim snakex(0)
+    dim snakey(0)
+    dim snakeo(0)
+    COLOR BACKDROP 0
+    POSITION CAMERA 20,15,-26
+    a = 1000
+    snakeo(0) = 2
+    AUTOCAM OFF
+    for x = 0 to 39
+        for y = 0 to 29
+            make object cube a, 0.75
+            if object exist (a) = 0
+                Print "Error Code 01"
+                wait 3000
+                end
+            ENDIF
+            ground(x,y) = a
+            POSITION OBJECT a, x, y, 1
+            color object a, rgb(0, 50, 0)
+            if trippy = 1
+                SET EFFECT ON a, "water.fx", 1
+            endif
+            a = a + 1
+        NEXT
+    NEXT
+    make object cube 1, 0.75
+    MAKE OBJECT cube 2, 0.75
+    COLOR OBJECT 1, rgb(255,0,0)
+    set effect on 2, "rainbow.fx", 1
+    if cdmusic = 0
+        LOAD MUSIC "satisfaction.mp3", 2
+    endif
+    STOP MUSIC 2
+endfunction

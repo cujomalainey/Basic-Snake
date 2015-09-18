@@ -1,0 +1,13 @@
+Rem ***** Included Source File *****
+Function peripherals()
+    if d = 0
+        timec = timer()
+        d = 1
+    ENDIF
+    if timer() >= timec + 1000
+        time = time + 1
+        timec = timer()
+    ENDIF
+    text 500,0, "Time: " + str$(time)
+    text 0,0, "Score: " + str$(score)
+ENDFUNCTION

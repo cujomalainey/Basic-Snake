@@ -1,0 +1,85 @@
+; **** Dark BASIC Professional Project File ****
+; **** Written by DarkBASIC Professional Editor ****
+version=DBP1.00
+project name=snake
+
+; **** source file information ****
+main=snake.dba
+LineMain=39
+include1=menu.dba
+LineInclude1=1
+include2=initialization.dba
+LineInclude2=21
+include3=peripherals.dba
+LineInclude3=12
+include4=collisions.dba
+LineInclude4=11
+include5=move.dba
+LineInclude5=58
+include6=controls.dba
+LineInclude6=33
+include7=killgame.dba
+LineInclude7=15
+include8=music.dba
+LineInclude8=9
+include9=food.dba
+LineInclude9=7
+final source=_Temp.dbsource
+
+; **** Executable Information  ***
+; build types: exe, media, installer, alone
+executable=snake.exe
+build type=media
+; ** Media file compression **
+compression=NO
+
+; ** Media file encryption **
+encryption=NO
+; ** Display the card options screen window? **
+card options window=NO
+
+; **** debugger information ****
+; If the editor sets this to yes, it is running in debug mode
+CLI=NO
+CommandLineArguments=
+
+; **** display mode information ****
+app title=Dark Basic Pro Project
+
+; graphics mode options: fullscreen, window, desktop, fulldesktop, hidden
+graphics mode=fullscreen
+fullscreen resolution=1024x768x32
+
+; arbitrary sizes are valid for windowed mode
+window resolution=1024x768
+
+; **** External Files Information ****
+
+; **** Media ****
+; Example entries: media1=graphics\*.jpg
+media root path=C:\Users\Curtis\Desktop\snake\
+
+; **** Icons ****
+icon1=C:\Users\Curtis\Desktop\smake\icon.ico
+
+; **** Cursors ****
+
+; **** Version Info ****
+VerComments=
+VerCompany=FMD Games
+VerFileDesc=Snake
+VerFileNumber=v1.0
+VerInternal=v1.0
+VerCopyright=2010
+VerTrademark=
+VerFilename=
+VerProduct=
+VerProductNumber=v1.0
+
+; **** To Do ****
+ToDo1=0Timer
+ToDo2=0high scores
+ToDo3=0menu
+ToDo4=0logo
+
+; **** Comments ****

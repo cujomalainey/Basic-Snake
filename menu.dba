@@ -1,0 +1,44 @@
+Rem ***** Included Source File *****
+Function menu()
+    SET DIR "media"
+    LOAD MUSIC "The Invitation.mp3", 1
+    loop MUSIC 1    
+    load image "normal.jpg", 1
+    load image "trippy.jpg", 2
+    load image "notes.png", 3
+    load image "music.png", 4
+    do
+        cls
+        paste image 1, 200, 500
+        paste image 2, 600, 500
+        text 200, 480, "Normal"
+        text 600, 480, "Trippy"
+        text 375, 450, "Which version would you like to play?"
+        if mouseclick() = 1 and mousex() >= 200 and mousex() <= image width(1) + 200 and mousey() >= 500 and mousey() <= 500 + image height(1)
+            trippy = 0
+            exit
+        ENDIF
+        if mouseclick() = 1 and mousex() >= 600 and mousex() <= image width(2) + 600 and mousey() >= 500 and mousey() <= 500 + image height(2)
+            trippy = 1
+            exit
+        ENDIF
+        sync
+    LOOP
+    wait 750
+    do
+        cls
+        paste image 3, 200,500,1
+        paste image 4, 600,500,1
+        if mouseclick() = 1 and mousex() >= 200 and mousex() <= image width(3) + 200 and mousey() >= 500 and mousey() <= 500 + image height(3)
+            cdmusic = 0
+            exit
+        ENDIF
+        if mouseclick() = 1 and mousex() >= 600 and mousex() <= image width(4) + 600 and mousey() >= 500 and mousey() <= 500 + image height(4)
+            cdmusic = 1
+            exit
+        ENDIF
+        sync
+    LOOP
+    Print "Loading, Please Wait..."
+    wait 1
+ENDFUNCTION

@@ -1,0 +1,34 @@
+Rem ***** Included Source File *****
+function cntrl()
+    select direction
+    case 0 rem up
+        if not (leftkey() and rightkey())
+            if leftkey() then direction = 3
+            if rightkey() then direction = 1
+        ENDIF
+    endcase
+    case 1 rem right
+        if not (upkey() and downkey())
+            if downkey() then direction = 2
+            if upkey() then direction = 0
+        ENDIF
+    endcase
+    case 2 rem down
+        if not (leftkey() and rightkey())
+            if leftkey() then direction = 3
+            if rightkey() then direction = 1
+        ENDIF
+    endcase
+    case 3 rem left
+        if not (upkey() and downkey())
+            if downkey() then direction = 2
+            if upkey() then direction = 0
+        ENDIF
+    endcase
+    CASE DEFAULT rem catch invalid direction
+        print "Error Code 00"
+        wait 3000
+        end
+    endcase
+    endselect
+ENDFUNCTION

@@ -1,0 +1,8 @@
+Rem ***** Included Source File *****
+Function foodfunc()
+    length = length + 3
+    foodx = rnd(39)
+    foody = rnd(29)
+    POSITION OBJECT 1, foodx, foody, 0
+    score = score + 10
+ENDFUNCTION

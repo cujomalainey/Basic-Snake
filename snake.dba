@@ -1,0 +1,40 @@
+global direction, foodx, foody, snake, length, score, timec, cdmusic, trippy
+menu()
+initialization()
+reset:
+
+direction = 0
+Randomize Timer()
+snakex(0) = 19
+snakey(0) = 0
+foodx = rnd(39)
+foody = rnd(29)
+snake = 0
+
+position object 1, foodx,foody, 0
+POSITION OBJECT 2, 19, 0, 0
+
+repeat
+    peripherals()
+    text 220, 350, "Press the Spacebar to Start"
+    sync
+UNTIL spacekey()
+
+do
+    cntrl()
+    collion()
+    move()
+    peripherals()
+    music()
+    if keystate(25) = 1
+        do
+            peripherals()
+            text 300,350, "This game is paused, press the spacebar to continue"
+            if spacekey()
+                exit
+            ENDIF
+            sync
+        LOOP
+    ENDIF
+    sync
+LOOP

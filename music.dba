@@ -1,0 +1,10 @@
+Rem ***** Included Source File *****
+Function music()
+    if music volume(1) > 0
+        volume = MUSIC VOLUME(1)
+        SET MUSIC volume 1, volume - 1
+    ENDIF
+    if music volume(1) = 0 and music playing(2) = 0
+        loop MUSIC 2
+    ENDIF
+ENDFUNCTION

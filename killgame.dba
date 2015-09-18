@@ -1,0 +1,25 @@
+Rem ***** Included Source File *****
+function killgame()
+    do
+        peripherals()
+        text 400,350, "Would you like to retry? Y or N?"
+        sync
+        if keystate(21) = 1
+            if snake <> 0    
+                repeat
+                    DELETE OBJECT snakeo(snake)
+                    snake = snake - 1
+                UNTIL snake = 0
+            endif
+            dim snakeo(0)
+            dim snakex(0)
+            dim snakey(0)
+            score = 0
+            time = 0
+            goto reset
+        ENDIF
+        if keystate(49) = 1
+            end
+        endif
+    loop
+ENDFUNCTION

@@ -1,0 +1,59 @@
+Rem ***** Included Source File *****
+function move() rem move the snake
+    for a = 0 to snake
+        if a = 0
+            tempxone = snakex(a)
+            tempyone = snakey(a)
+            select direction
+            case 0
+                snakey(0) = snakey(0) + 1
+            endcase
+            case 1
+                snakex(0) = snakex(0) + 1 
+            endcase
+            case 2
+                snakey(0) = snakey(0) - 1
+            endcase
+            case 3
+                snakex(0) = snakex(0) - 1
+            endcase
+            endselect
+            i = 0
+        else
+            if i
+                tempxone = snakex(a)
+                tempyone = snakey(a)
+                snakex(a) = tempxtwo
+                snakey(a) = tempytwo
+                i = 0
+            else   
+                tempxtwo = snakex(a)
+                tempytwo = snakey(a)
+                snakex(a) = tempxone
+                snakey(a) = tempyone
+                i = 1
+            ENDIF
+        endif
+        if a = snake
+            if length > 0
+                array insert at bottom snakex(0)
+                array insert at bottom snakey(0)
+                array insert at bottom snakeo(0)
+                snake = snake + 1
+                snakeo(a+1) = snake + 2
+                MAKE OBJECT cube snakeo(a+1), 0.75
+                if i
+                    snakex(a+1) = tempxone
+                    snakey(a+1) = tempyone
+                else   
+                    snakex(a+1) = tempxtwo
+                    snakey(a+1) = tempytwo
+                ENDIF
+                length = length - 1
+                POSITION OBJECT snakeo(a+1), snakex(a+1), snakey(a+1), 0
+                SET EFFECT on snakeo(a+1), "rainbow.fx", 1   
+            ENDIF
+        endif
+        POSITION OBJECT snakeo(a), snakex(a), snakey(a), 0
+    next
+ENDFUNCTION
